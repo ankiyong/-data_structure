@@ -24,11 +24,10 @@ def insertData(find,insert):
         node.link = head
         head = node
         return
-
     current = head
     while current.link != None:
         current = current.link
-        pre = current
+        pre =  current
         if current.data == find:
             node = Node()
             node.data = insert
@@ -39,24 +38,22 @@ def insertData(find,insert):
     node.data = insert
     current.link = node
 
-def delData(dele):
+def delData(deldata):
     global pre,current,head
-
-    if current.data == dele:
+    if head.data == deldata:
         current = head
-        head = head.link
+        head = current.link
         del(current)
         return
     current = head
-    while current.data != None:
-        current =current.link
+    while current.link != None:
         pre = current
-        if current.data == dele:
+        current = current.link
+        if current.data == deldata:
             pre.link = current.link
             del(current)
             return
 
-    return
 
 #메인함수
 
@@ -72,8 +69,8 @@ if __name__ == "__main__":
         pre.link = node
         memory.append(node)
 
-insertData('로제','기용')
-printNodes(head)
+# insertData('로제','기용')
+# printNodes(head)
 
 while select != 3:
     select = int(input('숫자 입력 : '))
